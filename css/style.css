@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+div.band {
+    width: 100%;
+    height: 10%;
+}
+
+.bg-green {
+    background-color: #009688;
+}
+
+.bg-gray-dark {
+    background-color: #DADBD3;
+}
