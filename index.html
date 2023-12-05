@@ -13,11 +13,46 @@
         <main class="bg-gray-dark">
             <div class="band bg-green">
             </div>
-            <section>
-                <div class="intefrace-container">
+            <div class="interface-container">
+                <section class="nav-container">
+                    <div class="section-header bg-gray">
+                        <div>
+                            <img src="./img/avatar_io.jpg" alt="my profile image">
+                            <p>
+                                Sofia
+                            </p>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                    <div class="info-message-container">
 
-                </div>
-            </section>
+                    </div>
+                    <div class="nav-main">
+                        <div class="search-bar-container bg-gray-light">
+                            <div>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            </div>
+                        </div>
+                        <div class="crono-messages-container">
+                            <ul>
+                                <li v-for="contact in contacts">
+                                    <p>
+                                        {{contact.name}}
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="chat-container">
+                    
+                </section>
+            </div>
         </main>
     </div>
     <script src="js/script.js"></script>
