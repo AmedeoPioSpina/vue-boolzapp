@@ -89,6 +89,7 @@ div.interface-container {
     display: flex;
     align-items: center;
     background-color: white;
+    border: 1px solid #EAEAEA;
 }
 
 .crono-messages-container {
