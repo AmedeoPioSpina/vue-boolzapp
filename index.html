@@ -73,10 +73,10 @@
                 <section class="chat-container">
                     <div class="section-header bg-gray">
                         <div>
-                            <img :src="currChat.avatar" alt="contact profile image">
+                            <img :src="contactsList[chatId].avatar" alt="contact profile image">
                             <div class="contact-evidence-info">
                                 <p>
-                                    {{currChat.name}}
+                                    {{contactsList[chatId].name}}
                                 </p>
                                 <p class="color-gray-dark-alternative">
                                     Ultimo accesso oggi alle ...
@@ -90,10 +90,21 @@
                         </div>
                     </div>
                     <div class="messages-container">
-
+                        <div class="messages">
+                            <div class="message" v-for="messages in contactsList[chatId].messages">
+                                <p class="message-text-chat">
+                                    {{messages.message}}
+                                </p>
+                                <p class="message-time-chat">
+                                    {{messages.date}}
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-message-container">
-
+                    <div class="input-message-container bg-gray">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <input type="text" placeholder="Scrivi un messaggio">
+                        <i class="fa-solid fa-microphone"></i>
                     </div>
                 </section>
             </div>

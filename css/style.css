@@ -146,7 +146,7 @@ div.interface-container {
     padding-left: 0.5rem;
 }
 
-.search-bar-container div input::placeholder {
+input::placeholder {
     color: #B1B1B1;
 }
 
@@ -173,7 +173,7 @@ div.interface-container {
 }
 
 .chat-container{
-    width: 60%;
+    width: calc(60% + 1px);
 }
 
 .chat-container .section-header img {
@@ -184,4 +184,33 @@ div.interface-container {
 div.contact-evidence-info {
     align-items: start;
     flex-direction: column;
+}
+
+.messages-container {
+    height: 85%;
+    width: 100%;
+    background-image: url(../img/mine.jpg);
+    overflow-y: scroll;
+}
+
+.input-message-container {
+    height: 7%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.input-message-container i {
+    flex-basis: 11%;
+    font-size: 1.5rem;
+}
+
+.input-message-container input {
+    flex-basis: 78%;
+    border: 0;
+    height: 75%;
+    border-radius: 0.3rem;
+    padding-left: 1rem;
 }

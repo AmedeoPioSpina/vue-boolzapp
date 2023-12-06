@@ -169,10 +169,16 @@ createApp({
     data(){
         return{
             contactsList: contacts,
-            currChat: contacts[0]
+            chatId: 0
         }
     },
     methods: {
-
+        showTimeFunc(dataTarget, timeType){
+            const time = dataTarget;
+            if(timeType === "hours"){
+                const splitTime = time.split(" ");
+                return splitTime[1].filter((element, index) => index > 4);
+            }
+        }
     }
 }).mount("#app")
