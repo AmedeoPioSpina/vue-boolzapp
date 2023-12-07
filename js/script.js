@@ -179,7 +179,8 @@ createApp({
             contactsList: contacts,
             chatId: 0,
             messageStatusParameterCondition: "received",
-            messageStatus: ["received-message","sent-message"]
+            messageStatus: ["received-message","sent-message"],
+            messageTarget: "",
         }
     },
     methods: {
@@ -191,6 +192,13 @@ createApp({
                 const splitTimeAry = splitTime[1].split("");
                 return splitTimeAry.filter((element, index) => index <= 4).join("");
             }
+            else if(timeType === "date"){
+                const splitTime = timeTarget.split(" ");
+                return splitTime[0];
+            }
+            else {
+                return timeTarget;
+            }
         },
         openChatFunc(event){
             let elementTarget = event.target.closest("li");
@@ -198,6 +206,16 @@ createApp({
             let phonenumberList = this.contactsList.map(item => item.phonenumber);
             let phonenumberIndex = phonenumberList.findIndex(item => item == dataIdTarget);
             this.chatId = phonenumberIndex;
+        },
+        sentMessageFunc(){
+            this.contactsList[this.chatId].messages.push(
+                {
+                    date: '10/01/2020 99:99:00',
+                    message: this.messageTarget,
+                    status: 'sent'
+                }
+            )
+            this.messageTarget = "";
         }
     }
 }).mount("#app")

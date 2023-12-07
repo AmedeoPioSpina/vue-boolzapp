@@ -103,7 +103,7 @@
                     </div>
                     <div class="input-message-container bg-gray">
                         <i class="fa-regular fa-face-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" v-model="messageTarget" placeholder="Scrivi un messaggio" @keyup.enter="sentMessageFunc()">
                         <i class="fa-solid fa-microphone"></i>
                     </div>
                 </section>

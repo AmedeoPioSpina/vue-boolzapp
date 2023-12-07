@@ -207,6 +207,11 @@ div.contact-evidence-info {
     margin-bottom: 0.6rem;
     padding: 1rem 0.2rem 0.3rem 1rem;
     border-radius: 0.6rem;
+    max-width: 65%;
+}
+
+.message p {
+    word-break: break-word;
 }
 
 .message p:first-child {
