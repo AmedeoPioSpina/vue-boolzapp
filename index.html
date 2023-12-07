@@ -50,7 +50,7 @@
                         </div>
                         <div class="crono-messages-container">
                             <ul>
-                                <li v-for="contact in contactsList">
+                                <li v-for="contact in contactsList" :data-id="contact.phonenumber" @click="openChatFunc($event)">
                                         <div class="info-chat-container">
                                             <img :src="contact.avatar" alt="">
                                             <div class="text-info-chat">
@@ -63,7 +63,7 @@
                                             </div>
                                         </div>
                                         <p class="last-message-time color-gray-dark-alternative">
-                                            10:20
+                                            {{showTimeFunc(contact.messages[contact.messages.length - 1].date, "hours")}}
                                         </p>
                                 </li>
                             </ul>
@@ -79,7 +79,7 @@
                                     {{contactsList[chatId].name}}
                                 </p>
                                 <p class="color-gray-dark-alternative">
-                                    Ultimo accesso oggi alle ...
+                                    Ultimo accesso oggi alle 12:00
                                 </p>
                             </div>
                         </div>
@@ -90,16 +90,16 @@
                         </div>
                     </div>
                     <div class="messages-container">
-                        <div class="messages">
-                            <div class="message" v-for="messages in contactsList[chatId].messages">
+                        <ul class="messages">
+                            <li class="message" v-for="messages in contactsList[chatId].messages" :class="(messages.status === messageStatusParameterCondition) ? messageStatus[0] : messageStatus[1] ">
                                 <p class="message-text-chat">
                                     {{messages.message}}
                                 </p>
                                 <p class="message-time-chat">
-                                    {{messages.date}}
+                                    {{showTimeFunc(messages.date, "hours")}}
                                 </p>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
                     <div class="input-message-container bg-gray">
                         <i class="fa-regular fa-face-smile"></i>

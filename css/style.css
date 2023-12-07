@@ -193,6 +193,41 @@ div.contact-evidence-info {
     overflow-y: scroll;
 }
 
+.messages {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 4rem;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.6rem;
+    padding: 1rem 0.2rem 0.3rem 1rem;
+    border-radius: 0.6rem;
+}
+
+.message p:first-child {
+    margin-right: 0.8rem;
+}
+
+.message p:last-child {
+    align-self: flex-end;
+}
+
+.received-message{
+    background-color: white;
+    margin-left: 6rem;
+}
+
+.sent-message{
+    background-color: #D5F9BA;
+    align-self: flex-end;
+    margin-right: 6rem;
+}
+
 .input-message-container {
     height: 7%;
     width: 100%;

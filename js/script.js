@@ -1,5 +1,6 @@
 const contacts = [
     {
+        phonenumber: 34057,
         name: 'Michele',
         avatar: './img/avatar_1.jpg',
         visible: true,
@@ -21,7 +22,8 @@ const contacts = [
             }
         ],
     },
-    {
+    {   
+        phonenumber: 31240,
         name: 'Fabio',
         avatar: './img/avatar_2.jpg',
         visible: true,
@@ -44,6 +46,7 @@ const contacts = [
         ],
     },
     {
+        phonenumber: 33446,
         name: 'Samuele',
         avatar: './img/avatar_3.jpg',
         visible: true,
@@ -66,6 +69,7 @@ const contacts = [
         ],
     },
     {
+        phonenumber: 30013,
         name: 'Alessandro B.',
         avatar: './img/avatar_4.jpg',
         visible: true,
@@ -83,6 +87,7 @@ const contacts = [
         ],
     },
     {
+        phonenumber: 32179,
         name: 'Alessandro L.',
         avatar: './img/avatar_5.jpg',
         visible: true,
@@ -100,6 +105,7 @@ const contacts = [
         ],
     },
     {
+        phonenumber: 36912,
         name: 'Claudia',
         avatar: './img/avatar_6.jpg',
         visible: true,
@@ -122,6 +128,7 @@ const contacts = [
         ],
     },
     {
+        phonenumber: 31296,
         name: 'Federico',
         avatar: './img/avatar_7.jpg',
         visible: true,
@@ -139,6 +146,7 @@ const contacts = [
         ],
     },
     {
+        phonenumber: 35241,
         name: 'Davide',
         avatar: './img/avatar_8.jpg',
         visible: true,
@@ -169,16 +177,27 @@ createApp({
     data(){
         return{
             contactsList: contacts,
-            chatId: 0
+            chatId: 0,
+            messageStatusParameterCondition: "received",
+            messageStatus: ["received-message","sent-message"]
         }
     },
     methods: {
         showTimeFunc(dataTarget, timeType){
-            const time = dataTarget;
+            const timeTarget = dataTarget;
+
             if(timeType === "hours"){
-                const splitTime = time.split(" ");
-                return splitTime[1].filter((element, index) => index > 4);
+                const splitTime = timeTarget.split(" ");
+                const splitTimeAry = splitTime[1].split("");
+                return splitTimeAry.filter((element, index) => index <= 4).join("");
             }
+        },
+        openChatFunc(event){
+            let elementTarget = event.target.closest("li");
+            let dataIdTarget = elementTarget.dataset.id;
+            let phonenumberList = this.contactsList.map(item => item.phonenumber);
+            let phonenumberIndex = phonenumberList.findIndex(item => item == dataIdTarget);
+            this.chatId = phonenumberIndex;
         }
     }
 }).mount("#app")
