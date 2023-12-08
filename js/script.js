@@ -170,8 +170,8 @@ const contacts = [
     }
 ]
 
-
 const {createApp} = Vue;
+const {DateTime} = luxon;
 
 createApp({
     data(){
@@ -189,8 +189,8 @@ createApp({
 
             if(timeType === "hours"){
                 const splitTime = timeTarget.split(" ");
-                const splitTimeAry = splitTime[1].split("");
-                return splitTimeAry.filter((element, index) => index <= 4).join("");
+                const splitTimeAry = splitTime[1].split(":");
+                return `${splitTimeAry[0]}:${splitTimeAry[1]}`;
             }
             else if(timeType === "date"){
                 const splitTime = timeTarget.split(" ");
@@ -208,14 +208,18 @@ createApp({
             this.chatId = phonenumberIndex;
         },
         sentMessageFunc(){
+            if(this.messageTarget.trim() === ""){return};
+            const now = DateTime.now().c;
+            const currDate = `${now.day}/${now.month}/${now.year} ${now.hour}:${now.minute}:${now.second}`;
             this.contactsList[this.chatId].messages.push(
                 {
-                    date: '10/01/2020 99:99:00',
+                    date: currDate,
                     message: this.messageTarget,
                     status: 'sent'
                 }
             )
             this.messageTarget = "";
+            console.log(currDate);
         }
     }
 }).mount("#app")
