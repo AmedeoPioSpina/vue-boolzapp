@@ -219,6 +219,15 @@ createApp({
                 }
             )
             this.messageTarget = "";
+            setTimeout(() => {
+                this.contactsList[this.chatId].messages.push(
+                    {
+                        date: currDate,
+                        message: "Ok",
+                        status: 'received'
+                    }
+                )
+            }, 1000)
             console.log(currDate);
         }
     }
