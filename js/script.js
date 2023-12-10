@@ -178,6 +178,7 @@ createApp({
         return{
             contactsList: contacts,
             chatId: 0,
+            inputFilterParameter: "",
             messageStatusParameterCondition: "received",
             messageStatus: ["received-message","sent-message"],
             messageTarget: "",
@@ -229,6 +230,17 @@ createApp({
                 )
             }, 1000)
             console.log(currDate);
+        },
+        filterContactsListFunc(){
+            return this.contactsList.filter((element) => {
+                const elementLowerCase = element.name.toLowerCase();
+                if(elementLowerCase.indexOf(this.inputFilterParameter.toLowerCase()) < 0){
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            });
         }
     }
 }).mount("#app")

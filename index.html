@@ -46,12 +46,12 @@
                         <div class="search-bar-container bg-gray-light">
                             <div>
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                                <input type="text" v-model="inputFilterParameter" placeholder="Cerca o inizia una nuova chat">
                             </div>
                         </div>
                         <div class="crono-messages-container">
                             <ul>
-                                <li v-for="contact in contactsList" :data-id="contact.phonenumber" @click="openChatFunc($event)">
+                                <li v-if="inputFilterParameter === '' " v-for="contact in contactsList" :data-id="contact.phonenumber" @click="openChatFunc($event)">
                                         <div class="info-chat-container">
                                             <img :src="contact.avatar" alt="">
                                             <div class="text-info-chat">
@@ -67,6 +67,22 @@
                                             {{showTimeFunc(contact.messages[contact.messages.length - 1].date, "hours")}}
                                         </p>
                                 </li>
+                                <li v-else v-for="contact in filterContactsListFunc()" :data-id="contact.phonenumber" @click="openChatFunc($event)">
+                                        <div class="info-chat-container">
+                                            <img :src="contact.avatar" alt="">
+                                            <div class="text-info-chat">
+                                                <p class="contact-name">
+                                                    {{contact.name}}
+                                                </p>
+                                                <p class="color-gray-dark-alternative">
+                                                    Ultimo messaggio inviato
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <p class="last-message-time color-gray-dark-alternative">
+                                            {{showTimeFunc(contact.messages[contact.messages.length - 1].date, "hours")}}
+                                        </p>
+                                </li>                             
                             </ul>
                         </div>
                     </div>
