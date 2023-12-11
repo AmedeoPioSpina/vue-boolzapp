@@ -209,6 +209,7 @@ div.contact-evidence-info {
 }
 
 .message {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 0.6rem;
@@ -221,11 +222,11 @@ div.contact-evidence-info {
     word-break: break-word;
 }
 
-.message p:first-child {
-    margin-right: 0.8rem;
+p.message-text-chat {
+    padding-right: 0.8rem;
 }
 
-.message p:last-child {
+p.message-time-chat {
     align-self: flex-end;
     font-size: 0.7rem;
 }
@@ -239,6 +240,64 @@ div.contact-evidence-info {
     background-color: #D5F9BA;
     align-self: flex-end;
     margin-right: 6rem;
+}
+
+.options-btn-container{
+    position: absolute;
+    z-index: 1;
+    top: 0.2rem;
+    right: 0.2rem;
+    visibility: hidden;
+    ;
+}
+
+.message:hover .options-btn-container{
+    visibility: visible;
+}
+
+.options-btn-container button {
+    width: 1rem;
+    height: 1rem;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0)
+}
+
+.received-message .options-btn-container button {
+    background-color: white;
+    box-shadow: -3px 3px 10px 3px white;
+}
+
+.sent-message .options-btn-container button {
+    background-color: #D5F9BA;
+    box-shadow: -3px 3px 10px 3px #D5F9BA;
+}
+
+.drop-down-options {
+    position: absolute;
+    top:0;
+    right: 0;
+    background-color: white;
+    transform: translateY(1rem);
+    border-radius: 0.2rem;
+    box-shadow: black;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-inline-block {
+    display: inline-block;
+}
+
+.drop-down-options ul {
+    margin: 0.7rem 0;
+}
+
+.drop-down-options ul li{
+    list-style: none;
+    text-wrap: nowrap;
+    padding: 0.75rem 1.5rem;
 }
 
 .input-message-container {

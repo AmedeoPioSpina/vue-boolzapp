@@ -109,6 +109,21 @@
                     <div class="messages-container">
                         <ul class="messages">
                             <li class="message" v-for="messages in contactsList[chatId].messages" :class="(messages.status === messageStatusParameterCondition) ? messageStatus[0] : messageStatus[1] ">
+                                <div class="options-btn-container">
+                                    <button class="color-gray-dark-alternative">
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </button>
+                                    <div class="drop-down-options display-none">
+                                        <ul>
+                                            <li>
+                                                Message info
+                                            </li>
+                                            <li>
+                                                Delete message
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                                 <p class="message-text-chat">
                                     {{messages.message}}
                                 </p>
